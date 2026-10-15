@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حجز موعد | مركز سعود التخصصي</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background:
+                radial-gradient(ellipse at 10% 15%,
+                    rgba(201, 169, 110, 0.13), transparent 35%),
+                radial-gradient(ellipse at 90% 75%,
+                    rgba(201, 169, 110, 0.10), transparent 32%),
+                #101010;
+            color: #fff;
+        }
+        .booking-page {
+            position: relative;
+            min-height: 85vh;
+            padding: 65px 18px 80px;
+            overflow: hidden;
+        }
+        .booking-page::before,
+        .booking-page::after {
+            content: "";
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border: 1px solid rgba(201, 169, 110, 0.22);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .booking-page::before {
+            top: 50px;
+            right: -150px;
+            box-shadow:
+                0 0 0 25px rgba(201, 169, 110, 0.025),
+                0 0 0 50px rgba(201, 169, 110, 0.025);
+        }
+        .booking-page::after {
+            bottom: 20px;
+            left: -160px;
+            box-shadow:
+                0 0 0 25px rgba(201, 169, 110, 0.025),
+                0 0 0 50px rgba(201, 169, 110, 0.025);
+        }
+        .booking-container {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 760px;
+            margin: auto;
+        }
+        .booking-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+        .booking-heading .eyebrow {
+            color: #c9a96e;
+            letter-spacing: 3px;
+            font-size: 12px;
+        }
+        .booking-heading h1 {
+            font-size: clamp(30px, 5vw, 48px);
+            margin: 15px 0;
+        }
+        .booking-heading h1 span {
+            color: #c9a96e;
+        }
+        .booking-heading p {
+            color: #b9b9b9;
+            line-height: 1.9;
+        }
+        .booking-form {
+            padding: 30px;
+            background: rgba(24, 24, 24, 0.96);
+            border: 1px solid rgba(201, 169, 110, 0.35);
+            border-radius: 12px;
+            box-shadow: 0 20px 70px rgba(0, 0, 0, 0.35);
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            min-width: 0;
+        }
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        .form-group label {
+            color: #e6d4b4;
+            font-size: 14px;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            min-width: 0;
+            padding: 14px;
+            border: 1px solid #414141;
+            border-radius: 6px;
+            background: #101010;
+            color: #fff;
+            font-family: inherit;
+            font-size: 15px;
+            color-scheme: dark;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #c9a96e;
+            box-shadow: 0 0 0 2px rgba(201, 169, 110, 0.12);
+        }
+        .form-group input[type="date"] {
+            display: block;
+            min-height: 50px;
+            cursor: pointer;
+            accent-color: #c9a96e;
+        }
+        .date-hint {
+            font-size: 12px;
+            color: #999;
+            line-height: 1.7;
+        }
+        .booking-submit {
+            width: 100%;
+            margin-top: 25px;
+            padding: 16px;
+            border: none;
+            border-radius: 6px;
+            background: linear-gradient(135deg, #e2c58f, #b89556);
+            color: #17120a;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+        .booking-submit:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+        }
+        .booking-note {
+            color: #999;
+            font-size: 12px;
+            line-height: 1.8;
+            text-align: center;
+            margin: 18px 0 0;
+        }
+        .booking-error {
+            display: none;
+            margin-top: 15px;
+            color: #ffb6a9;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        @media (max-width: 600px) {
+            .booking-page {
+                padding: 45px 14px 55px;
+            }
+            .booking-form {
+                padding: 20px 16px;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+            .form-group.full-width {
+                grid-column: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="site-header">
+    <a class="logo" href="index.html">
+        SAUD <span>LEXUS CENTER</span>
+    </a>
+    <nav class="main-nav">
+        <a href="index.html">الرئيسية</a>
+        <a href="about.html">من نحن</a>
+        <a href="services.html">خدماتنا</a>
+        <a href="cars.html">سيارات لكزس</a>
+        <a class="active" href="booking.html">حجز موعد</a>
+        <a href="maintenance.html">الصيانة الدورية</a>
+        <a href="contact.html">تواصل معنا</a>
+    </nav>
+</header>
+<main class="booking-page">
+    <div class="booking-container">
+        <div class="booking-heading">
+            <p class="eyebrow">SAUD SPECIALIZED CENTER</p>
+            <h1>احجز <span>موعدك</span></h1>
+            <p>
+                اختر سيارتك والخدمة والتاريخ والوقت المناسب لك.
+                سنتواصل معك لتأكيد الموعد.
+            </p>
+        </div>
+        <form class="booking-form" id="bookingForm">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="customerName">الاسم الكامل</label>
+                    <input
+                        type="text"
+                        id="customerName"
+                        placeholder="اكتب اسمك"
+                        autocomplete="name"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="customerPhone">رقم الجوال</label>
+                    <input
+                        type="tel"
+                        id="customerPhone"
+                        placeholder="05xxxxxxxx"
+                        autocomplete="tel"
+                        inputmode="tel"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="carModel">موديل السيارة</label>
+                    <select id="carModel" required>
+                        <option value="">اختر السيارة</option>
+                        <option>Lexus IS</option>
+                        <option>Lexus ES</option>
+                        <option>Lexus LS</option>
+                        <option>Lexus UX</option>
+                        <option>Lexus NX</option>
+                        <option>Lexus RX</option>
+                        <option>Lexus GX</option>
+                        <option>Lexus LX</option>
+                        <option>Lexus TX</option>
+                        <option>Lexus LFA</option>
+                        <option>Lexus RC</option>
+                        <option>Lexus LC</option>
+                        <option>Lexus LM</option>
+                        <option>سيارة أخرى</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="carYear">سنة الصنع</label>
+                    <input
+                        type="number"
+                        id="carYear"
+                        placeholder="مثال: 2022"
+                        min="1990"
+                        max="2035"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="serviceType">نوع الخدمة</label>
+                    <select id="serviceType" required>
+                        <option value="">اختر الخدمة</option>
+                        <option>صيانة ميكانيكية</option>
+                        <option>فحص كمبيوتر وكهرباء</option>
+                        <option>صيانة المكيف</option>
+                        <option>سمكرة ودهان</option>
+                        <option>فحص شامل</option>
+                        <option>صيانة دورية </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentDate">تاريخ الموعد</label>
+                    <input
+                        type="date"
+                        id="appointmentDate"
+                        required
+                    >
+                    <span class="date-hint">
+                        اضغط على خانة التاريخ لفتح التقويم واختيار اليوم.
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentTime">وقت الموعد المفضل</label>
+                    <select id="appointmentTime" required>
+                        <option value="">اختر الوقت</option>
+                        <option>09:00 صباحًا</option>
+                        <option>10:00 صباحًا</option>
+                        <option>11:00 صباحًا</option>
+                        <option>12:00 ظهرًا</option>
+                        <option>01:00 مساءً</option>
+                        <option>02:00 مساءً</option>
+                        <option>03:00 مساءً</option>
+                        <option>04:00 مساءً</option>
+                        <option>05:00 مساءً</option>
+                        <option>06:00 مساءً</option>
+                        <option>07:00 مساءً</option>
+                    </select>
+                </div>
+                <div class="form-group full-width">
+                    <label for="carNotes">وصف المشكلة أو ملاحظاتك (اختياري)</label>
+                    <textarea
+                        id="carNotes"
+                        rows="4"
+                        placeholder="اكتب تفاصيل المشكلة أو الخدمة المطلوبة..."
+                    ></textarea>
+                </div>
+            </div>
+            <button type="submit" class="booking-submit">
+                متابعة الحجز عبر واتساب
+            </button>
+            <p id="bookingError" class="booking-error" role="alert"></p>
+            <p class="booking-note">
+                إرسال الطلب لا يعني تأكيد الموعد تلقائيًا.
+                سيتم تأكيد الموعد بالتواصل مع المركز.
+            </p>
+        </form>
+    </div>
+</main>
+<footer class="site-footer">
+    <p>© <span id="year"></span> مركز سعود التخصصي — جدة</p>
+</footer>
+<script>
+    const dateInput = document.getElementById("appointmentDate");
+    const bookingForm = document.getElementById("bookingForm");
+    const bookingError = document.getElementById("bookingError");
+    // تحديد تاريخ اليوم حسب التاريخ المحلي للجهاز، دون مشاكل UTC.
+    function getLocalDateString() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, "0");
+        const day = String(now.getDate()).padStart(2, "0");
+        return `${year}-${month}-${day}`;
+    }
+    // منع اختيار تاريخ سابق.
+    dateInput.min = getLocalDateString();
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+    bookingForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        bookingError.style.display = "none";
+        bookingError.textContent = "";
+        if (!bookingForm.checkValidity()) {
+            bookingForm.reportValidity();
+            return;
+        }
+        // التحقق مرة أخرى من التاريخ عند الإرسال.
+        if (dateInput.value < getLocalDateString()) {
+            bookingError.textContent =
+                "تاريخ الموعد غير صحيح. اختر اليوم أو تاريخًا قادمًا.";
+            bookingError.style.display = "block";
+            dateInput.focus();
+            return;
+        }
+        const name = document.getElementById("customerName").value.trim();
+        const phone = document.getElementById("customerPhone").value.trim();
+        const model = document.getElementById("carModel").value;
+        const carYear = document.getElementById("carYear").value;
+        const service = document.getElementById("serviceType").value;
+        const date = dateInput.value;
+        const time = document.getElementById("appointmentTime").value;
+        const notes = document.getElementById("carNotes").value.trim();
+        const message =
+`السلام عليكم، أرغب في طلب حجز موعد لدى مركز سعود التخصصي.
+الاسم: ${name}
+رقم الجوال: ${phone}
+السيارة: ${model}
+سنة الصنع: ${carYear}
+الخدمة المطلوبة: ${service}
+التاريخ: ${date}
+الوقت المفضل: ${time}
+الملاحظات: ${notes || "لا توجد"}
+أرجو التواصل معي لتأكيد الموعد.`;
+        const whatsappURL =
+            "https://wa.me/966502514079?text=" +
+            encodeURIComponent(message);
+        window.open(whatsappURL, "_blank");
+    });
+</script>
+</body>
+</html>

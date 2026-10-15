@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مركز سعود التخصصي | صيانة سيارات لكزس</title>
+    <meta name="description"
+          content="مركز سعود التخصصي لصيانة سيارات لكزس في جدة. خدمات ميكانيكية وكهربائية وتشخيص أعطال وصيانة مكيفات.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --gold: #c9a96e;
+            --gold-light: #e6cf9e;
+            --dark: #0b0b0b;
+            --panel: #171717;
+            --muted: #aaa;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            background:
+                radial-gradient(ellipse at 15% 10%, rgba(201,169,110,.10), transparent 35%),
+                radial-gradient(ellipse at 90% 50%, rgba(201,169,110,.07), transparent 30%),
+                var(--dark);
+            color: #f6f3ed;
+            font-family: Arial, sans-serif;
+        }
+        a {
+            color: inherit;
+        }
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+            padding: 18px 6%;
+            background: rgba(10,10,10,.94);
+            border-bottom: 1px solid rgba(201,169,110,.25);
+            backdrop-filter: blur(12px);
+        }
+        .logo {
+            text-decoration: none;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+        .logo span {
+            display: block;
+            color: var(--gold);
+            font-size: 10px;
+            letter-spacing: 3px;
+            margin-top: 5px;
+        }
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .main-nav a {
+            text-decoration: none;
+            font-size: 13px;
+            color: #ddd;
+            transition: color .2s;
+        }
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: var(--gold-light);
+        }
+        .hero {
+            position: relative;
+            display: flex;
+            align-items: center;
+            min-height: 650px;
+            padding: 90px 8%;
+            overflow: hidden;
+            background:
+                linear-gradient(90deg, rgba(8,8,8,.96), rgba(8,8,8,.65), rgba(8,8,8,.25)),
+                url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRENXkL9mHXzH_QP2geN3_6iWvmecWkm-tLvVOLeiNp4A&s=10")
+                center / cover no-repeat;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border: 1px solid rgba(201,169,110,.25);
+            border-radius: 50%;
+            left: -200px;
+            bottom: -300px;
+            box-shadow:
+                0 0 0 35px rgba(201,169,110,.04),
+                0 0 0 75px rgba(201,169,110,.03);
+            pointer-events: none;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+        .eyebrow {
+            color: var(--gold);
+            font-size: 12px;
+            letter-spacing: 4px;
+        }
+        .hero h1 {
+            margin: 20px 0;
+            font-size: clamp(38px, 6vw, 72px);
+            line-height: 1.35;
+        }
+        .hero h1 span {
+            color: var(--gold-light);
+        }
+        .hero p {
+            max-width: 590px;
+            color: #d0d0d0;
+            font-size: 16px;
+            line-height: 2;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 14px 24px;
+            border: 1px solid var(--gold);
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: .2s;
+        }
+        .btn-gold {
+            background: var(--gold);
+            color: #111;
+        }
+        .btn-outline {
+            color: var(--gold-light);
+            background: rgba(0,0,0,.25);
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1000px;
+            margin: -35px auto 0;
+            padding: 0 20px;
+            position: relative;
+            z-index: 5;
+        }
+        .stat-card {
+            padding: 25px 15px;
+            text-align: center;
+            background: #171614;
+            border: 1px solid rgba(201,169,110,.25);
+            border-radius: 8px;
+        }
+        .stat-card strong {
+            display: block;
+            color: var(--gold-light);
+            font-size: 29px;
+            margin-bottom: 9px;
+        }
+        .stat-card span {
+            color: #aaa;
+            font-size: 13px;
+        }
+        .section {
+            padding: 85px 6%;
+        }
+        .section-heading {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 42px;
+        }
+        .section-heading h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            margin: 13px 0;
+        }
+        .section-heading h2 span {
+            color: var(--gold-light);
+        }
+        .section-heading p {
+            color: var(--muted);
+            line-height: 1.9;
+        }
+        .about-section {
+            position: relative;
+            overflow: hidden;
+        }
+        .about-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 50px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .about-image {
+            position: relative;
+        }
+        .about-image img {
+            display: block;
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid rgba(201,169,110,.3);
+        }
+        .about-image::after {
+            content: "";
+            position: absolute;
+            inset: 15px -15px -15px 15px;
+            border: 1px solid rgba(201,169,110,.4);
+            border-radius: 10px;
+            z-index: -1;
+        }
+        .about-text h2 {
+            font-size: 36px;
+            line-height: 1.5;
+        }
+        .about-text h2 span {
+            color: var(--gold-light);
+        }
+        .about-text p {
+            color: #bbb;
+            line-height: 2;
+        }
+        .gold-divider {
+            width: 75px;
+            height: 3px;
+            margin: 20px 0;
+            background: var(--gold);
+        }
+        .services-section {
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(201,169,110,.09), transparent 55%),
+                #111;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 20px;
+            max-width: 1250px;
+            margin: auto;
+        }
+        .service-card {
+            padding: 30px 22px;
+            background: linear-gradient(145deg, #1c1c1c, #121212);
+            border: 1px solid #302b21;
+            border-radius: 8px;
+            transition: transform .25s, border-color .25s;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--gold);
+        }
+        .service-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 53px;
+            height: 53px;
+            border: 1px solid rgba(201,169,110,.5);
+            border-radius: 50%;
+            color: var(--gold-light);
+            font-size: 23px;
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            font-size: 20px;
+        }
+        .service-card p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.9;
+            min-height: 80px;
+        }
+        .text-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--gold-light);
+            text-decoration: none;
+            font-size: 13px;
+        }
+        /* CAR SLIDER */
+        .cars-showcase {
+            position: relative;
+            padding: 85px 0 65px;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse at 50% 5%, rgba(201,169,110,.12), transparent 55%),
+                linear-gradient(135deg, #101010, #191713, #0b0b0b);
+        }
+        .showcase-decoration {
+            position: absolute;
+            width: 330px;
+            height: 330px;
+            border: 1px solid rgba(201,169,110,.11);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .decoration-one {
+            top: 110px;
+            right: -200px;
+            box-shadow:
+                0 0 0 35px rgba(201,169,110,.025),
+                0 0 0 70px rgba(201,169,110,.02);
+        }
+        .decoration-two {
+            bottom: -240px;
+            left: -120px;
+            box-shadow:
+                0 0 0 35px rgba(201,169,110,.025),
+                0 0 0 70px rgba(201,169,110,.02);
+        }
+        .showcase-heading {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 0 20px;
+            margin-bottom: 38px;
+        }
+        .showcase-eyebrow {
+            color: var(--gold);
+            font-size: 12px;
+            letter-spacing: 4px;
+        }
+        .showcase-heading h2 {
+            margin: 13px 0;
+            font-size: clamp(30px, 4vw, 46px);
+        }
+        .showcase-heading h2 span {
+            color: var(--gold-light);
+        }
+        .showcase-heading p {
+            color: #aaa;
+            line-height: 1.9;
+        }
+        .cars-slider {
+            position: relative;
+            max-width: 1450px;
+            margin: auto;
+            padding: 0 65px;
+        }
+        .cars-track-wrapper {
+            overflow: hidden;
+            direction: ltr;
+            padding: 5px 0 18px;
+            touch-action: pan-y;
+        }
+        .cars-track {
+            display: flex;
+            flex-direction: row;
+            gap: 22px;
+            width: max-content;
+            will-change: transform;
+        }
+        .showcase-car {
+            display: block;
+            flex: 0 0 330px;
+            width: 330px;
+            overflow: hidden;
+            background: #111;
+            border: 1px solid rgba(201,169,110,.25);
+            border-radius: 5px;
+            text-decoration: none;
+            transition: border-color .25s, box-shadow .25s;
+        }
+        .showcase-car:hover {
+            border-color: var(--gold);
+            box-shadow: 0 10px 35px rgba(201,169,110,.12);
+        }
+        .showcase-car-image {
+            overflow: hidden;
+            height: 215px;
+            background: #222;
+        }
+        .showcase-car-image img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .5s;
+        }
+        .showcase-car:hover .showcase-car-image img {
+            transform: scale(1.06);
+        }
+        .showcase-car-info {
+            padding: 22px;
+            min-height: 132px;
+            background: linear-gradient(145deg, #1c1b19, #101010);
+            direction: rtl;
+            text-align: right;
+        }
+        .showcase-car-info > span {
+            color: var(--gold);
+            font-size: 10px;
+            letter-spacing: 1.5px;
+        }
+        .showcase-car-info h3 {
+            margin: 9px 0;
+            color: #fff;
+            font-size: 25px;
+        }
+        .showcase-car-info p {
+            margin: 0;
+            color: var(--gold-light);
+            font-size: 13px;
+        }
+        .slider-arrow {
+            position: absolute;
+            z-index: 4;
+            top: 42%;
+            width: 43px;
+            height: 43px;
+            border: 1px solid rgba(201,169,110,.6);
+            border-radius: 50%;
+            background: #171512;
+            color: var(--gold-light);
+            font-size: 22px;
+            cursor: pointer;
+            transition: .2s;
+        }
+        .slider-arrow:hover {
+            background: var(--gold);
+            color: #111;
+        }
+        .slider-prev {
+            left: 12px;
+        }
+        .slider-next {
+            right: 12px;
+        }
+        .slider-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            max-width: 1320px;
+            margin: 25px auto 0;
+            padding: 0 25px;
+        }
+        .slider-progress {
+            width: 180px;
+            height: 2px;
+            background: #333;
+        }
+        #sliderProgress {
+            display: block;
+            width: 0;
+            height: 100%;
+            background: var(--gold);
+        }
+        .all-cars-link {
+            color: var(--gold-light);
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .all-cars-link span {
+            margin-right: 6px;
+        }
+        .booking-banner {
+            position: relative;
+            overflow: hidden;
+            margin: 35px 6% 80px;
+            padding: 65px 25px;
+            text-align: center;
+            border: 1px solid rgba(201,169,110,.35);
+            border-radius: 10px;
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(201,169,110,.18), transparent 60%),
+                linear-gradient(135deg, #1a1916, #101010);
+        }
+        .booking-banner h2 {
+            font-size: clamp(27px, 4vw, 40px);
+        }
+        .booking-banner h2 span {
+            color: var(--gold-light);
+        }
+        .booking-banner p {
+            color: #bbb;
+            line-height: 1.9;
+        }
+        .contact-section {
+            padding: 65px 6%;
+            background: #111;
+            border-top: 1px solid rgba(201,169,110,.2);
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+        .contact-card {
+            padding: 25px 15px;
+            text-align: center;
+            background: #191919;
+            border: 1px solid #332c20;
+            border-radius: 7px;
+        }
+        .contact-card h3 {
+            color: var(--gold-light);
+        }
+        .contact-card p,
+        .contact-card a {
+            color: #bbb;
+            line-height: 1.8;
+            text-decoration: none;
+            overflow-wrap: anywhere;
+        }
+        .site-footer {
+            padding: 25px 15px;
+            background: #080808;
+            border-top: 1px solid rgba(201,169,110,.2);
+            color: #999;
+            text-align: center;
+            font-size: 13px;
+        }
+        .site-footer span {
+            color: var(--gold);
+        }
+        @media (max-width: 1000px) {
+            .services-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .main-nav {
+                gap: 14px;
+            }
+            .about-layout {
+                gap: 30px;
+            }
+        }
+        @media (max-width: 700px) {
+            .site-header {
+                position: relative;
+                flex-direction: column;
+                padding: 17px 15px;
+            }
+            .main-nav {
+                justify-content: center;
+                gap: 12px 17px;
+            }
+            .main-nav a {
+                font-size: 12px;
+            }
+            .hero {
+                min-height: 570px;
+                padding: 65px 22px;
+                background-position: center;
+            }
+            .hero p {
+                font-size: 14px;
+            }
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                margin-top: 20px;
+            }
+            .stat-card {
+                padding: 18px;
+            }
+            .section {
+                padding: 60px 20px;
+            }
+            .about-layout {
+                grid-template-columns: 1fr;
+            }
+            .about-image img {
+                height: 270px;
+            }
+            .about-text h2 {
+                font-size: 29px;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .service-card p {
+                min-height: auto;
+            }
+            .cars-showcase {
+                padding: 60px 0 45px;
+            }
+            .cars-slider {
+                padding: 0 25px;
+            }
+            .showcase-car {
+                flex-basis: 275px;
+                width: 275px;
+            }
+            .showcase-car-image {
+                height: 180px;
+            }
+            .slider-arrow {
+                width: 34px;
+                height: 34px;
+                font-size: 18px;
+            }
+            .slider-prev {
+                left: 2px;
+            }
+            .slider-next {
+                right: 2px;
+            }
+            .slider-footer {
+                padding: 0 20px;
+            }
+            .slider-progress {
+                width: 100px;
+            }
+            .booking-banner {
+                margin: 25px 15px 55px;
+                padding: 45px 20px;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            .showcase-car-image img {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="site-header">
+<a href="index.html" class="logo">
+    SAUD
+    <span>LEXUS SPECIALIZED CENTER</span>
+</a>
+        <nav class="main-nav">
+            <a href="index.html" class="active">الرئيسية</a>
+            <a href="about.html">من نحن</a>
+            <a href="services.html">خدماتنا</a>
+            <a href="cars.html">سيارات لكزس</a>
+            <a href="booking.html">حجز موعد</a>
+            <a href="maintenance.html">الصيانة الدورية</a>
+            <a href="contact.html">تواصل معنا</a>
+        </nav>
+    </header>
+    <!-- HERO -->
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <span class="eyebrow">SAUD SPECIALIZED CENTER</span>
+                <h1>
+                    العناية التي<br>
+                    <span>تستحقها لكزس</span>
+                </h1>
+                <p>
+                    في مركز سعود التخصصي، نهتم بأدق تفاصيل سيارتك،
+                    من الصيانة الميكانيكية والكهربائية إلى التشخيص
+                    والعناية بأنظمة السيارة، لنقدم لك تجربة مميزة.
+                </p>
+                <div class="hero-actions">
+                    <a href="booking.html" class="btn btn-gold">
+                        احجز موعدك
+                    </a>
+                    <a href="services.html" class="btn btn-outline">
+                        استكشف خدماتنا
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- STATS -->
+        <section class="stats">
+            <div class="stat-card">
+                <strong>800</strong>
+                <span>سيارة شهريًا — الطاقة الاستيعابية المعلنة</span>
+            </div>
+            <div class="stat-card">
+                <strong>360°</strong>
+                <span>اهتمام بمختلف جوانب الصيانة</span>
+            </div>
+            <div class="stat-card">
+                <strong>LEXUS</strong>
+                <span>عناية متخصصة بسيارتك</span>
+            </div>
+        </section>
+        <!-- ABOUT -->
+        <section class="section about-section">
+            <div class="about-layout">
+                <div class="about-image">
+                    <img
+                        src="https://fixedopsdigital.s3.amazonaws.com/oem/lexus/service/general/lexus-general-service-1200x900-min.jpg"
+                        alt="مركز صيانة سيارات">
+                </div>
+                <div class="about-text">
+                    <span class="eyebrow">ABOUT OUR CENTER</span>
+                    <h2>
+                        خبرة في العناية<br>
+                        <span>بسيارتك</span>
+                    </h2>
+                    <div class="gold-divider"></div>
+                    <p>
+                        نعمل في مركز سعود التخصصي على تقديم خدمات
+                        الصيانة والفحص وفق احتياجات كل سيارة،
+                        مع الاهتمام بالتفاصيل ووضوح التواصل مع العميل.
+                    </p>
+                    <p>
+                        هدفنا أن تحصل على تجربة منظمة تبدأ من استقبال
+                        السيارة، مرورًا بالفحص، وصولًا إلى شرح الأعمال
+                        المطلوبة قبل تنفيذها.
+                    </p>
+                    <a href="about.html" class="text-link">
+                        تعرف علينا أكثر ←
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- SERVICES -->
+        <section class="section services-section">
+            <div class="section-heading">
+                <span class="eyebrow">OUR SERVICES</span>
+                <h2>خدمات <span>مركزنا</span></h2>
+                <p>
+                    خدمات صيانة وفحص متنوعة لسيارتك، حسب حالتها
+                    والتجهيزات المتاحة في المركز.
+                </p>
+            </div>
+            <div class="services-grid">
+                <article class="service-card">
+                    <div class="service-icon">⚙</div>
+                    <h3>الصيانة الميكانيكية</h3>
+                    <p>
+                        فحص المحرك والقير وأنظمة التعليق
+                        والأجزاء الميكانيكية.
+                    </p>
+                    <a href="service.html?type=mechanical" class="text-link">
+                        اكتشف الخدمة ←
+                    </a>
+                </article>
+                <article class="service-card">
+                    <div class="service-icon">⌁</div>
+                    <h3>الكهرباء والتشخيص</h3>
+                    <p>
+                        قراءة الأعطال وفحص الأنظمة الكهربائية
+                        والحساسات عند توفر التجهيزات المناسبة.
+                    </p>
+                    <a href="service.html?type=electrical" class="text-link">
+                        اكتشف الخدمة ←
+                    </a>
+                </article>
+                <article class="service-card">
+                    <div class="service-icon">❄</div>
+                    <h3>التكييف والإلكترونيات</h3>
+                    <p>
+                        فحص أنظمة التكييف والمكونات الإلكترونية
+                        وتشخيص المشكلات المرتبطة بها.
+                    </p>
+                    <a href="service.html?type=ac" class="text-link">
+                        اكتشف الخدمة ←
+                    </a>
+                </article>
+                <article class="service-card">
+                    <div class="service-icon">✧</div>
+                    <h3>السمكرة والدهان</h3>
+                    <p>
+                        العناية بهيكل السيارة ومظهرها الخارجي
+                        حسب نوع الضرر والأعمال المطلوبة.
+                    </p>
+                    <a href="service.html?type=bodywork" class="text-link">
+                        اكتشف الخدمة ←
+                    </a>
+                </article>
+            </div>
+            <div style="text-align:center; margin-top:35px;">
+                <a href="services.html" class="btn btn-outline">
+                    جميع الخدمات
+                </a>
+            </div>
+        </section>
+        <!-- AUTOMATIC CAR SLIDER -->
+        <section class="cars-showcase" id="carsShowcase">
+            <div class="showcase-decoration decoration-one"></div>
+            <div class="showcase-decoration decoration-two"></div>
+            <div class="showcase-heading">
+                <span class="showcase-eyebrow">VEHICLE CARE</span>
+                <h2>عناية <span>بسيارتك</span></h2>
+                <p>
+                    استكشف طرازات لكزس واختر سيارتك
+                    للتعرف على معرض الصور الخاص بها.
+                </p>
+            </div>
+            <div class="cars-slider">
+                <button
+                    class="slider-arrow slider-prev"
+                    id="sliderPrev"
+                    type="button"
+                    aria-label="السيارات السابقة">
+                    &#10094;
+                </button>
+                <div class="cars-track-wrapper" id="carsTrackWrapper">
+                    <div class="cars-track" id="carsTrack">
+                        <a href="car.html?model=is" class="showcase-car">
+                            <div class="showcase-car-image">
+                                <img src="https://carsales.pxcrush.net/carsales/cars/dealer/er6y72su10wydjezz847igg5z.jpg?pxc_method=fitfill&pxc_bgtype=self&pxc_size=720,480"
+                                     alt="Lexus IS" loading="lazy">
+                            </div>
+                            <div class="showcase-car-info">
+                                <span>SPORT SEDAN</span>
+                                <h3>Lexus IS</h3>
+                                <p>اكتشف السيارة ←</p>
+                            </div>
+                        </a>
+                        <a href="car.html?model=es" class="showcase-car">
+                            <div class="showcase-car-image">
+                                <img src="https://cimg0.ibsrv.net/ibimg/hgm/1920x1080-1/100/934/2025-lexus-es-350_100934376.jpg"
+                                     alt="Lexus ES" loading="lazy">
+                            </div>
+                            <div class="showcase-car-info">
+                                <span>LUXURY SEDAN</span>
+                                <h3>Lexus ES</h3>
+                                <p>اكتشف السيارة ←</p>
+                            </div>
+                        </a>
+                        <a href="car.html?model=ls" class="showcase-car">
+                            <div class="showcase-car-image">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8uH3TMJ7fzWBS8ZTlRTKljeDoqxnFPvPzZ1sQCormWEFefsejTQjSrbA&s=10"
+                                     alt="Lexus LS" loading="lazy">
+                            </div>
+                            <div class="showcase-car-info">
+                                <span>FLAGSHIP SEDAN</span>
+                                <h3>Lexus LS</h3>
+                                <p>اكتشف السيارة ←</p>
+                            </div>
+                        </a>
+                        <a href="car.html?model=ux" class="showcase-car">
+                            <div class="showcase-car-image">
+                                <img src="https://cdn.dlron.us/static/dealer-17473/8461c29a_2025-lexus-ux-300h-f-sport-handling-681-66bb75996e981.jpg"
+                                     alt="Lexus UX" loading="lazy">
+                            </div>
+                            <div class="showcase-car-info">
+                                <span>COMPACT SUV</span>
+                                <h3>Lexus UX</h3>
+                                <p>اكتشف السيارة ←</p>
+                            </div>
+                        </a>
+                        <a href="car.html?model=nx" class="showcase-car">
+                            <div class="showcase-car-image">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmoVYLB7aSRheprHcZ6NQ3HzfnIaVzBJRVeIVOzb6FO-wSGmTfw_GzbIY&s=10"
+                                     alt="Lexus NX" loading="lazy">
+                            </div>
+                            <div class="showcase-car-info">
+                                <span>LUXURY SUV</span>
+                                <h3>Lexus NX</h3>
+                                <p>اكتشف السيارة ←</p>
+                            </div>
+                        </a>
+                        <a href="car.html?model=rx" class="showcase-car">
+                            <div class="showcase-car-image">
+                                <img src="https://di-uploads-pod24.dealerinspire.com/lexusofpembrokepines/uploads/2024/12/mlp-img-perf-2025-rx.jpg"
+                                     alt="Lexus RX" loading="lazy">
+                            </div>
+                            <div class="showcase-car-info">
+                                <span>LUXURY CROSSOVER</span>
+                                <h3>Lexus RX</h3>
+                                <p>اكتشف السيارة ←</p>
+                            </div>
+                        </a>
+                        <a href="car.html?model=gx" class="showcase-car">
+                            <div class="showcase-car-image">
+                                <img src="https://www.edmunds.com/assets/m/cs/cms/98347fdc-87e9-4925-8915-6cff4bce174c/2025-lexus-gx-550_1280.jpg"
+                                     alt="Lexus GX" loading="lazy">
+                            </div>
+                            <div class="showcase-car-info">
+                                <span>OFF-ROAD SUV</span>
+                                <h3>Lexus GX</h3>
+                                <p>اكتشف السيارة ←</p>
+                            </div>
+                        </a>
+                        <a href="car.html?model=lx" class="showcase-car">
+                            <div class="showcase-car-image">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT992j9dN7dSSxbHreFYN16OVZnofeOgFv5ck-OmzUmBgqWbA2zaIeL1gFz&s=10"
+                                     alt="Lexus LX" loading="lazy">
+                            </div>
+                            <div class="showcase-car-info">
+                                <span>FLAGSHIP SUV</span>
+                                <h3>Lexus LX</h3>
+                                <p>اكتشف السيارة ←</p>
+                            </div>
+                        </a>
+                        <a href="car.html?model=tx" class="showcase-car">
+                            <div class="showcase-car-image">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv45KZ4DEd3cTZYsTt6-Ob61vKqkZXn_IiPrXA3pwElg&s"
+                                     alt="Lexus TX" loading="lazy">
+                            </div>
+                            <div class="showcase-car-info">
+                                <span>THREE-ROW SUV</span>
+                                <h3>Lexus TX</h3>
+                                <p>اكتشف السيارة ←</p>
+                            </div>
+                        </a>
+                        <a href="car.html?model=rz" class="showcase-car">
+                            <div class="showcase-car-image">
+                                <img src="https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2021%2F06%2F2012-lexus-lfa-pearl-yellow-72-miles-bring-a-trailer-auction-brand-new-japanese-supercar-1.jpg?q=90&w=800&cbr=1&fit=max"
+                                     alt="Lexus LFA" loading="lazy">
+                            </div>
+                            <div class="showcase-car-info">
+                                <span>LEXUS SUPER CAR</span>
+                                <h3>Lexus LFA</h3>
+                                <p>اكتشف السيارة ←</p>
+                            </div>
+                        </a>
+                        <a href="car.html?model=rc" class="showcase-car">
+                            <div class="showcase-car-image">
+                                <img src="https://www.topgear.com/sites/default/files/cars-car/image/2019/04/_f8a0337.jpg"
+                                     alt="Lexus RC" loading="lazy">
+                            </div>
+                            <div class="showcase-car-info">
+                                <span>SPORT COUPE</span>
+                                <h3>Lexus RC</h3>
+                                <p>اكتشف السيارة ←</p>
+                            </div>
+                        </a>
+                        <a href="car.html?model=lc" class="showcase-car">
+                            <div class="showcase-car-image">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsGr7ZZiXBAYAkXr9figzq2odrRGLsiQHPCbgP5Z4G_xcgIWoiFdDUMLPm&s=10"
+                                     alt="Lexus LC" loading="lazy">
+                            </div>
+                            <div class="showcase-car-info">
+                                <span>GRAND TOURER</span>
+                                <h3>Lexus LC</h3>
+                                <p>اكتشف السيارة ←</p>
+                            </div>
+                        </a>
+                        <a href="car.html?model=lm" class="showcase-car">
+                            <div class="showcase-car-image">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Lexus_LM_350h_AWD_AAWH15_Sonic_Quartz_with_cargo_box_%2B_roof_rack_01_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original"
+                                     alt="Lexus LM" loading="lazy">
+                            </div>
+                            <div class="showcase-car-info">
+                                <span>LUXURY MPV</span>
+                                <h3>Lexus LM</h3>
+                                <p>اكتشف السيارة ←</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <button
+                    class="slider-arrow slider-next"
+                    id="sliderNext"
+                    type="button"
+                    aria-label="السيارات التالية">
+                    &#10095;
+                </button>
+            </div>
+            <div class="slider-footer">
+                <div class="slider-progress">
+                    <span id="sliderProgress"></span>
+                </div>
+                <a href="cars.html" class="all-cars-link">
+                    استكشف جميع السيارات ←
+                </a>
+            </div>
+        </section>
+        <!-- BOOKING BANNER -->
+        <section class="booking-banner">
+            <span class="eyebrow">BOOK YOUR VISIT</span>
+            <h2>
+                سيارتك تستحق <span>العناية الأفضل</span>
+            </h2>
+            <p>
+                تواصل معنا أو أرسل طلب موعدك عبر موقعنا.
+            </p>
+            <div class="hero-actions" style="justify-content:center;">
+                <a href="booking.html" class="btn btn-gold">
+                    حجز موعد
+                </a>
+                <a
+                    href="https://wa.me/966502514079"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-outline">
+                    تواصل عبر واتساب
+                </a>
+            </div>
+        </section>
+        <!-- CONTACT -->
+        <section class="contact-section">
+            <div class="section-heading">
+                <span class="eyebrow">CONTACT US</span>
+                <h2>تواصل <span>معنا</span></h2>
+                <p>
+                    نسعد باستفساراتك ونساعدك في معرفة الخدمات المناسبة لسيارتك.
+                </p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>موقعنا</h3>
+                    <a href="https://maps.app.goo.gl/dzuVS6JZG2EXvka17?g_st=ic"
+                       target="_blank" rel="noopener">
+                        جدة، حي المنار شارع قيس بن زهير
+                    </a>
+                </div>
+                <div class="contact-card">
+                    <h3>واتساب</h3>
+                    <a href="https://wa.me/966502514079"
+                       target="_blank" rel="noopener">
+                        0502514079
+                    </a>
+                </div>
+                <div class="contact-card">
+                    <h3>مواعيد الصيانة</h3>
+                    <p>تواصل معنا لمعرفة أوقات العمل وتوفر المواعيد.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <p>
+            © <span id="currentYear"></span>
+            مركز سعود التخصصي — جميع الحقوق محفوظة
+        </p>
+    </footer>
+    <!-- CAR SLIDER SCRIPT -->
+    <script>
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+        (function () {
+            const track = document.getElementById("carsTrack");
+            const wrapper = document.getElementById("carsTrackWrapper");
+            const previousButton = document.getElementById("sliderPrev");
+            const nextButton = document.getElementById("sliderNext");
+            const progress = document.getElementById("sliderProgress");
+            if (!track || !wrapper) return;
+            const originalCards = Array.from(track.children);
+            // Duplicate the cards for a continuous loop.
+            originalCards.forEach(card => {
+                const clone = card.cloneNode(true);
+                clone.setAttribute("aria-hidden", "true");
+                clone.querySelectorAll("a, button").forEach(el => {
+                    el.setAttribute("tabindex", "-1");
+                });
+                track.appendChild(clone);
+            });
+            let position = 0;
+            let paused = false;
+            let dragging = false;
+            let startX = 0;
+            let startPosition = 0;
+            let lastTime = 0;
+            const speed = 35;
+            function loopWidth() {
+                return track.scrollWidth / 2;
+            }
+            function render() {
+                const width = loopWidth();
+                if (width > 0) {
+                    position = ((position % width) + width) % width;
+                }
+                track.style.transform =
+                    "translate3d(" + (-position) + "px,0,0)";
+                if (progress) {
+                    const maxPosition =
+                        Math.max(1, width - wrapper.clientWidth);
+                    progress.style.width =
+                        Math.min(100, position / maxPosition * 100) + "%";
+                }
+            }
+            function animate(timestamp) {
+                if (!lastTime) lastTime = timestamp;
+                const elapsed =
+                    Math.min((timestamp - lastTime) / 1000, 0.05);
+                lastTime = timestamp;
+                if (!paused && !dragging) {
+                    position += speed * elapsed;
+                    render();
+                }
+                requestAnimationFrame(animate);
+            }
+            function moveByCard(direction) {
+                const card = track.querySelector(".showcase-car");
+                if (!card) return;
+                const gap =
+                    parseFloat(getComputedStyle(track).gap) || 0;
+                position += direction *
+                    (card.getBoundingClientRect().width + gap);
+                render();
+            }
+            previousButton.addEventListener("click", function () {
+                moveByCard(-1);
+            });
+            nextButton.addEventListener("click", function () {
+                moveByCard(1);
+            });
+            wrapper.addEventListener("mouseenter", function () {
+                paused = true;
+            });
+            wrapper.addEventListener("mouseleave", function () {
+                paused = false;
+            });
+            wrapper.addEventListener("focusin", function () {
+                paused = true;
+            });
+            wrapper.addEventListener("focusout", function () {
+                paused = false;
+            });
+            wrapper.addEventListener("pointerdown", function (event) {
+                if (event.pointerType === "mouse" && event.button !== 0) {
+                    return;
+                }
+                dragging = true;
+                startX = event.clientX;
+                startPosition = position;
+                if (wrapper.setPointerCapture) {
+                    wrapper.setPointerCapture(event.pointerId);
+                }
+            });
+            wrapper.addEventListener("pointermove", function (event) {
+                if (!dragging) return;
+                position = startPosition + startX - event.clientX;
+                render();
+            });
+            function stopDragging() {
+                dragging = false;
+            }
+            wrapper.addEventListener("pointerup", stopDragging);
+            wrapper.addEventListener("pointercancel", stopDragging);
+            wrapper.addEventListener("lostpointercapture", stopDragging);
+            window.addEventListener("resize", render);
+            render();
+            requestAnimationFrame(animate);
+        })();
+    </script>
+</body>
+</html>

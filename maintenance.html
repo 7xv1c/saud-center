@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الصيانة الدورية | مركز سعود التخصصي</title>
+<link rel="stylesheet" href="style.css">
+<style>
+:root {
+    --gold: #c9a96e;
+    --light: #f0d9a5;
+    --border: rgba(201,169,110,.3);
+}
+body {
+    margin: 0;
+    background: radial-gradient(circle at 10% 15%,rgba(201,169,110,.12),transparent 32%),#0b0b0b;
+    color: #f5f2eb;
+    font-family: Arial,Tahoma,sans-serif;
+}
+.hero {
+    text-align: center;
+    padding: 55px 20px;
+    background: linear-gradient(120deg,#17140f,#080808,#19150e);
+    border-bottom: 1px solid var(--border);
+}
+.hero small { color: var(--gold); letter-spacing: 3px; }
+.hero h1 { font-size: clamp(30px,5vw,46px); }
+.hero h1 span { color: var(--light); }
+.hero p { max-width: 700px; margin: auto; color: #bbb; line-height: 2; }
+.wrap { max-width: 1150px; padding: 30px 20px 60px; margin: auto; }
+.box {
+    padding: 24px;
+    margin-bottom: 24px;
+    background: linear-gradient(145deg,#1c1c1b,#111);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+.muted { color: #aaa; font-size: 13px; line-height: 1.9; }
+.fields,.summary {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+.fields label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--light);
+    font-size: 13px;
+}
+.fields select,.fields input {
+    width: 100%;
+    min-height: 46px;
+    padding: 12px;
+    box-sizing: border-box;
+    color: white;
+    background: #0b0b0b;
+    border: 1px solid #484238;
+    border-radius: 5px;
+    font: inherit;
+}
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.btn {
+    display: inline-block;
+    padding: 12px 18px;
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+    background: var(--gold);
+    color: #111;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+}
+.btn.alt { color: var(--light); background: transparent; }
+.notice {
+    margin-top: 20px;
+    padding: 14px;
+    color: #ddd;
+    background: rgba(201,169,110,.07);
+    border-right: 3px solid var(--gold);
+    font-size: 13px;
+    line-height: 2;
+}
+.stat {
+    padding: 18px;
+    background: #141414;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+}
+.stat span { color: #aaa; font-size: 12px; }
+.stat strong { display: block; margin-top: 9px; color: var(--light); font-size: 18px; }
+.tablebox { overflow: hidden; background: #121212; border: 1px solid var(--border); border-radius: 10px; }
+.tablehead { padding: 20px; background: #1b1915; border-bottom: 1px solid var(--border); }
+.tablehead p { color: #aaa; font-size: 13px; line-height: 1.8; }
+.scroll { overflow-x: auto; }
+.maintable { width: 100%; min-width: 600px; border-collapse: collapse; text-align: right; }
+.maintable th { padding: 14px; color: var(--light); background: #211e18; font-size: 13px; }
+.maintable td { padding: 12px 14px; border-top: 1px solid #292929; font-size: 13px; line-height: 1.9; vertical-align: top; }
+.maintable td:first-child { color: var(--light); }
+.empty { padding: 28px; color: #bbb; text-align: center; line-height: 2; }
+.foot { padding: 20px; text-align: center; color: #999; background: #080808; border-top: 1px solid var(--border); font-size: 12px; }
+.foot span { color: var(--gold); }
+@media(max-width:750px) {
+    .fields,.summary { grid-template-columns: 1fr; }
+    .box { padding: 18px 14px; }
+}
+@media print {
+    header,nav,.hero,.filters,.actions,.foot { display: none !important; }
+    body { background: white; color: black; }
+    .wrap { padding: 0; }
+    .box,.tablebox,.stat { background: white; color: black; border: 1px solid #ccc; }
+    .maintable th { background: #eee; color: black; }
+    .maintable td,.maintable td:first-child { color: black; }
+}
+</style>
+</head>
+<body>
+<header>
+    <a href="index.html">مركز سعود التخصصي<small>SAUD SPECIALIZED CENTER</small></a>
+    <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="about.html">من نحن</a>
+        <a href="services.html">خدماتنا</a>
+        <a href="cars.html">سيارات لكزس</a>
+        <a href="maintenance.html">الصيانة الدورية</a>
+        <a href="booking.html">حجز موعد</a>
+        <a href="contact.html">تواصل معنا</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <small>LEXUS MAINTENANCE GUIDE  </small>
+    <h1>الصيانة  <span>الدورية</span></h1>
+    <p>اختر موديل السيارة وسنة الصنع وأدخل الممشى لعرض أقرب جدول صيانة وبنوده التفصيلية.</p>
+</section>
+
+<main class="wrap">
+<section class="box filters">
+    <h2>بيانات السيارة</h2>
+    <p class="muted">سيتم اختيار أقرب ممشى صيانة تلقائيًا من الجداول الثلاثة.</p>
+    <div class="fields">
+        <div>
+            <label for="maintenanceModel">موديل السيارة</label>
+            <select id="maintenanceModel">
+                <option value="">اختر الموديل</option>
+                <option>IS</option><option>ES</option><option>LS</option>
+                <option>UX</option><option>NX</option><option>RX</option>
+                <option>GX</option><option>LX</option><option>RC</option>
+                <option>LC</option><option>TX</option><option>LFA</option><option>LM</option>
+            </select>
+        </div>
+        <div>
+            <label for="maintenanceYear">سنة الصنع</label>
+            <select id="maintenanceYear"><option value="">اختر السنة</option></select>
+        </div>
+        <div>
+            <label for="maintenanceMileage">الممشى الحالي (كم)</label>
+            <input id="maintenanceMileage" type="number" min="0" step="1" placeholder="مثال: 76000">
+        </div>
+    </div>
+    <div class="actions">
+        <button class="btn" id="showMaintenance">عرض جدول الصيانة</button>
+        <button class="btn alt" id="resetMaintenance">إعادة التعيين</button>
+        <button class="btn alt" id="printMaintenance">طباعة الجدول</button>
+    </div>
+    <div class="notice">
+        هذا جدول موحّد إرشادي للمركز، وليس بديلًا عن دليل الشركة المصنّعة.
+        تختلف مواعيد السوائل والفلاتر حسب المحرك وسنة الصنع وظروف الاستخدام؛
+        تحقق من دليل السيارة قبل تنفيذ أي تغيير.
+    </div>
+</section>
+
+<section class="summary">
+    <div class="stat"><span>السيارة</span><strong id="summaryCar">—</strong></div>
+    <div class="stat"><span>الممشى المدخل</span><strong id="summaryMileage">—</strong></div>
+    <div class="stat"><span>عدد البنود</span><strong id="summaryCount">—</strong></div>
+</section>
+
+<section class="tablebox">
+    <div class="tablehead">
+        <h2 id="maintenanceTitle">جدول الصيانة</h2>
+        <p id="maintenanceDescription">اختر بيانات السيارة لعرض جدول الصيانة.</p>
+    </div>
+    <div id="maintenanceResults" class="empty">لم يتم اختيار السيارة بعد.</div>
+</section>
+
+<section class="box" style="margin-top:24px;text-align:center">
+    <h2>احجز موعد صيانة</h2>
+    <p class="muted">تواصل مع مركز سعود التخصصي للاستفسار عن صيانة سيارتك.</p>
+    <div class="actions" style="justify-content:center">
+        <a class="btn" href="booking.html">حجز موعد</a>
+        <a class="btn alt" href="https://wa.me/966502514079" target="_blank" rel="noopener">واتساب</a>
+    </div>
+</section>
+</main>
+
+<footer class="foot">
+    © <span id="currentYear"></span>
+    <span>مركز سعود التخصصي</span> — جميع الحقوق محفوظة
+</footer>
+
+<script>
+const groups = [
+    [10000,30000,50000,70000,90000,110000,130000,150000,170000,190000,210000,230000,250000,270000,290000],
+    [20000,40000,60000,100000,120000,140000,180000,200000,220000,260000,280000,300000],
+    [80000,160000,240000,320000,400000]
+];
+
+const tasks = {
+1: [
+["زيت المحرك: المستوى والحالة والتهريبات","فحص"],
+["فلتر زيت المحرك","تغيير حسب فترة الصيانة المعتمدة"],
+["أصوات واهتزازات المحرك","فحص"],
+["غطاء الزيت ومحيط المحرك","فحص التهريبات"],
+["خراطيم المحرك والوصلات","فحص التشققات والتهريب"],
+["السيور الخارجية","فحص التآكل والتشققات"],
+["قواعد المحرك والقير","فحص بصري"],
+["مجرى سحب الهواء","فحص"],
+["فلتر هواء المحرك","فحص وتنظيف عند الحاجة؛ التغيير حسب الدليل"],
+["مستوى سائل التبريد","فحص والمحرك بارد"],
+["الرديتر والقربة والخراطيم","فحص التهريب والتلف"],
+["مراوح التبريد","فحص التشغيل"],
+["مستوى سائل الفرامل","فحص"],
+["خراطيم وأنابيب الفرامل","فحص التهريب والتلف"],
+["سماكة الفحمات الأمامية والخلفية","فحص"],
+["الهوبات/أقراص الفرامل","فحص التآكل والخدوش"],
+["فرامل التوقف/الفرامل اليدوية","فحص التشغيل"],
+["علبة الدركسون وأذرعة التوجيه","فحص الخلوص والتلف"],
+["المقصات والجلب والمفاصل الكروية","فحص"],
+["المساعدات واليايات","فحص التهريب والتلف"],
+["جلود العكوس","فحص التشققات والتهريب"],
+["عمود نقل الحركة وصلاته إن وجدت","فحص"],
+["الإطارات الأربعة","فحص التآكل والتشققات"],
+["ضغط الإطارات","ضبط حسب ملصق السيارة"],
+["البطارية وأقطابها","فحص التثبيت والتآكل"],
+["نظام شحن البطارية","فحص عند الحاجة"],
+["الأنوار والإشارات وأنوار الفرامل","فحص التشغيل"],
+["المساحات ورشاشات الزجاج","فحص التشغيل وحالة الشفرات"],
+["البوق","فحص التشغيل"],
+["سائل المساحات","فحص وتعبئة"],
+["المكيف ودرجة التبريد","فحص الأداء"],
+["فلتر المكيف/المقصورة","فحص؛ التغيير حسب الدليل"],
+["أحزمة الأمان وأقفال الأبواب","فحص التشغيل"],
+["أسفل السيارة","فحص التهريبات والأضرار"],
+["أكواد الأعطال الإلكترونية","فحص بجهاز تشخيص عند الحاجة"],
+["تدوير الإطارات","حسب دليل السيارة ونوع الإطارات"]
+],
+2: [
+["بنود الفحص الأساسية في الجدول الأول","تنفيذ البنود المناسبة للسيارة"],
+["زيت المحرك وفلتر الزيت","تغيير حسب فترة الصيانة المعتمدة"],
+["فلتر هواء المحرك","فحص؛ تغيير عند موعده أو إذا كان متسخًا"],
+["فلتر المكيف/المقصورة","تغيير حسب الدليل أو عند الاتساخ"],
+["سائل الفرامل","تغيير حسب الفترة الزمنية في دليل السيارة"],
+["زيت الدفرنس","فحص؛ تغيير حسب الدليل وظروف الاستخدام"],
+["زيت ناقل الحركة","فحص حسب إجراء المصنع؛ التغيير وفق الدليل"],
+["فلتر ناقل الحركة إن وجد","حسب جدول المصنع"],
+["نظام التبريد والخراطيم","فحص شامل"],
+["السيور وشداد السيور","فحص"],
+["نظام الوقود وخطوطه","فحص التهريب والتلف"],
+["غطاء خزان الوقود ونظام EVAP","فحص"],
+["خراطيم مبرد زيت المحرك إن وجدت","فحص"],
+["نظام التدفئة والتكييف","فحص الأداء"],
+["أنابيب العادم وحوامله","فحص التهريب والتلف"],
+["مسامير عمود نقل الحركة إن وجد","فحص التثبيت"],
+["عمود نقل الحركة ومفاصله إن وجدت","فحص؛ تشحيم فقط إذا نص المصنع"],
+["زيت الدركسون الهيدروليكي إن وجد","فحص المستوى والتهريب"],
+["وصلات وأذرعة التوجيه","فحص"],
+["المفاصل الكروية وأغطيتها","فحص"],
+["نظام التعليق الأمامي والخلفي","فحص شامل"],
+["الفحمات والهوبات","فحص وتنظيف/تشحيم نقاط التلامس حسب الحاجة"],
+["أنابيب وخراطيم الفرامل","فحص شامل"],
+["البطارية ونظام الشحن","فحص"],
+["ضغط الإطارات وحالتها","فحص وضبط"],
+["تدوير الإطارات","حسب دليل السيارة"],
+["تسرب السوائل أسفل السيارة","فحص شامل"]
+],
+3: [
+["بنود الفحص الأساسية في الجدولين الأول والثاني","تنفيذ البنود المناسبة للسيارة"],
+["زيت المحرك وفلتر الزيت","تغيير حسب فترة الصيانة المعتمدة"],
+["فلتر هواء المحرك","تغيير إذا حل موعده وفق دليل السيارة"],
+["فلتر المكيف/المقصورة","تغيير حسب دليل السيارة"],
+["سائل الفرامل","تغيير إذا حل موعده الزمني"],
+["سائل تبريد المحرك","فحص الحالة؛ التغيير حسب نوع السائل وجدول المصنع"],
+["زيت الدفرنس إن وجد","فحص/تغيير حسب دليل السيارة"],
+["زيت ناقل الحركة وفلتره إن وجد","صيانة حسب إجراء المصنع"],
+["فلتر الوقود إن كان قابلًا للاستبدال","تغيير حسب جدول المصنع"],
+["البواجي","تغيير حسب نوعها وجدول المصنع"],
+["السيور وشداد السيور","فحص شامل"],
+["نظام التبريد ومضخة الماء","فحص التهريبات والأداء"],
+["خراطيم مبرد زيت المحرك إن وجدت","فحص شامل"],
+["نظام الوقود وخطوطه وغطاء الخزان","فحص"],
+["نظام EVAP","فحص بصري/تشخيصي عند الحاجة"],
+["أنابيب العادم وحوامله","فحص شامل"],
+["الفحمات والهوبات وفرامل التوقف","فحص شامل"],
+["خراطيم وأنابيب الفرامل","فحص شامل"],
+["نظام التوجيه والمفاصل الكروية","فحص شامل"],
+["التعليق والمساعدات","فحص شامل"],
+["العكوس وأغطية العكوس","فحص شامل"],
+["عمود نقل الحركة ومساميره إن وجدت","فحص"],
+["البطارية ونظام الشحن","فحص"],
+["نظام التكييف وفلتر المقصورة","فحص"],
+["الإطارات والتآكل والمحاذاة","فحص؛ ضبط الزوايا عند الحاجة"],
+["تدوير الإطارات","حسب دليل السيارة"],
+["الأعطال الإلكترونية","قراءة الأكواد عند الحاجة"]
+]
+};
+
+const timed = {
+80000: [
+["فلتر الوقود إذا كان ضمن جدول المحرك","موعد مرجعي في الملف: كل 80,000 كم؛ تحقق من دليل السيارة"],
+["زيت ناقل الحركة وفلتره إذا كان ضمن جدول المحرك","موعد مرجعي في الملف: كل 80,000 كم؛ تحقق من دليل السيارة"]
+],
+100000: [
+["شمعات الإشعال (البواجي)","موعد مرجعي في الملف: كل 100,000 كم؛ تحقق من نوع البواجي ودليل السيارة"]
+],
+160000: [
+["سائل تبريد المحرك","موعد مرجعي في الملف: عند 160,000 كم؛ تحقق من نوع السائل ودليل السيارة"]
+]
+};
+
+const model = document.getElementById("maintenanceModel");
+const year = document.getElementById("maintenanceYear");
+const mileage = document.getElementById("maintenanceMileage");
+const results = document.getElementById("maintenanceResults");
+
+document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+for (let y = new Date().getFullYear(); y >= 2000; y--) {
+    const option = document.createElement("option");
+    option.value = String(y);
+    option.textContent = String(y);
+    year.appendChild(option);
+}
+
+function nearestMileage(n) {
+    return groups.flat().reduce((best, km) => {
+        const currentDiff = Math.abs(km - n);
+        const bestDiff = Math.abs(best - n);
+        if (currentDiff < bestDiff ||
+            (currentDiff === bestDiff && km > best)) {
+            return km;
+        }
+        return best;
+    }, groups.flat()[0]);
+}
+
+function showMaintenance() {
+    const n = Number(mileage.value);
+
+    if (!model.value || !year.value || mileage.value.trim() === "" ||
+        !Number.isFinite(n) || n < 0) {
+        alert("اختر الموديل والسنة وأدخل الممشى الصحيح.");
+        return;
+    }
+
+    const selected = nearestMileage(n);
+    const group = groups.findIndex(g => g.includes(selected)) + 1;
+    const list = [...tasks[group], ...(timed[selected] || [])];
+
+    document.getElementById("summaryCar").textContent =
+        "Lexus " + model.value + " " + year.value;
+    document.getElementById("summaryMileage").textContent =
+        n.toLocaleString("en-US") + " كم (أقرب صيانة: " +
+        selected.toLocaleString("en-US") + " كم)";
+    document.getElementById("summaryCount").textContent = String(list.length);
+    document.getElementById("maintenanceTitle").textContent =
+        "جدول الصيانة — " + selected.toLocaleString("en-US") + " كم";
+    document.getElementById("maintenanceDescription").textContent =
+        "Lexus " + model.value + " " + year.value +
+        " | تم اختيار مجموعة الصيانة رقم " + group + " حسب أقرب ممشى.";
+
+    const table = document.createElement("table");
+    table.className = "maintable";
+    table.innerHTML =
+        "<thead><tr><th>رقم</th><th>بند الفحص أو الصيانة</th>" +
+        "<th>الإجراء / الموعد المحدد</th></tr></thead>";
+
+    const tbody = document.createElement("tbody");
+    list.forEach((task, index) => {
+        const row = document.createElement("tr");
+        [String(index + 1), task[0], task[1]].forEach(value => {
+            const cell = document.createElement("td");
+            cell.textContent = value;
+            row.appendChild(cell);
+        });
+        tbody.appendChild(row);
+    });
+
+    table.appendChild(tbody);
+    results.className = "scroll";
+    results.replaceChildren(table);
+}
+
+document.getElementById("showMaintenance")
+    .addEventListener("click", showMaintenance);
+
+document.getElementById("resetMaintenance")
+    .addEventListener("click", () => {
+        model.value = "";
+        year.value = "";
+        mileage.value = "";
+        ["summaryCar", "summaryMileage", "summaryCount"].forEach(id => {
+            document.getElementById(id).textContent = "—";
+        });
+        document.getElementById("maintenanceTitle").textContent = "جدول الصيانة";
+        document.getElementById("maintenanceDescription").textContent =
+            "اختر بيانات السيارة لعرض جدول الصيانة.";
+        results.className = "empty";
+        results.textContent = "لم يتم اختيار السيارة بعد.";
+    });
+
+document.getElementById("printMaintenance")
+    .addEventListener("click", () => window.print());
+</script>
+</body>
+</html>

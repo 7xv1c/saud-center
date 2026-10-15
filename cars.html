@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سيارات لكزس | مركز سعود التخصصي</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+    <a class="logo" href="index.html">SAUD <span>LEXUS CENTER</span></a>
+    <nav class="main-nav">
+        <a href="index.html">الرئيسية</a>
+        <a href="about.html">من نحن</a>
+        <a href="services.html">خدماتنا</a>
+        <a class="active" href="cars.html">سيارات لكزس</a>
+        <a href="booking.html">حجز موعد</a>
+        <a href="maintenance.html">الصيانة الدورية</a>
+        <a href="contact.html">تواصل معنا</a>
+    </nav>
+</header>
+<main>
+    <section class="cars-hero">
+        <p class="eyebrow">SAUD SPECIALIZED CENTER</p>
+        <h1>عالم <span>لكزس</span></h1>
+        <p>الفخامة تستحق عناية متخصصة.</p>
+        <p>استكشف مجموعة من طرازات لكزس وتعرّف على خدمات الصيانة المناسبة لها.</p>
+    </section>
+    <section class="cars-section">
+        <div class="cars-toolbar">
+            <input
+                type="search"
+                id="carSearch"
+                placeholder="ابحث عن سيارة، مثل RX أو LX..."
+                aria-label="البحث عن سيارة"
+            >
+            <div class="car-filters">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="sedan">سيدان</button>
+                <button class="filter-btn" data-filter="suv">SUV</button>
+                <button class="filter-btn" data-filter="coupe">رياضية</button>
+                <button class="filter-btn" data-filter="electric">سوبر كارز</button>
+                <button class="filter-btn" data-filter="van">عائلية</button>
+            </div>
+        </div>
+        <div class="car-grid" id="allCars">
+            <article class="car-card" data-name="IS آي اس" data-category="sedan">
+                <img src="https://carsales.pxcrush.net/carsales/cars/dealer/er6y72su10wydjezz847igg5z.jpg?pxc_method=fitfill&pxc_bgtype=self&pxc_size=720,480" alt="سيارة سيدان رياضية">
+                <div class="car-info">
+                    <span class="car-type">SEDAN</span>
+                    <h2>Lexus IS</h2>
+                    <p>سيدان رياضية بطابع ديناميكي.</p>
+                    <a href="car.html?model=is" class="car-link">اكتشف السيارة ←</a>
+                </div>
+            </article>
+            <article class="car-card" data-name="ES إي اس" data-category="sedan">
+                <img src="https://cimg0.ibsrv.net/ibimg/hgm/1920x1080-1/100/934/2025-lexus-es-350_100934376.jpg" alt="سيارة سيدان فاخرة">
+                <div class="car-info">
+                    <span class="car-type">LUXURY SEDAN</span>
+                    <h2>Lexus ES</h2>
+                    <p>راحة وهدوء وأناقة للاستخدام اليومي.</p>
+                    <a href="car.html?model=es" class="car-link">اكتشف السيارة ←</a>
+                </div>
+            </article>
+            <article class="car-card" data-name="LS إل اس" data-category="sedan">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8uH3TMJ7fzWBS8ZTlRTKljeDoqxnFPvPzZ1sQCormWEFefsejTQjSrbA&s=10" alt="سيارة فاخرة">
+                <div class="car-info">
+                    <span class="car-type">FLAGSHIP SEDAN</span>
+                    <h2>Lexus LS</h2>
+                    <p>قمة الفخامة والراحة في سيارات السيدان.</p>
+                    <a href="car.html?model=ls" class="car-link">اكتشف السيارة ←</a>
+                </div>
+            </article>
+            <article class="car-card" data-name="UX يو اكس" data-category="suv">
+                <img src="https://cdn.dlron.us/static/dealer-17473/8461c29a_2025-lexus-ux-300h-f-sport-handling-681-66bb75996e981.jpg" alt="سيارة كروس أوفر">
+                <div class="car-info">
+                    <span class="car-type">COMPACT SUV</span>
+                    <h2>Lexus UX</h2>
+                    <p>كروس أوفر مدمجة وعملية.</p>
+                    <a href="car.html?model=ux" class="car-link">اكتشف السيارة ←</a>
+                </div>
+            </article>
+            <article class="car-card" data-name="NX ان اكس" data-category="suv">
+                <img src="https://tse1.mm.bing.net/th/id/OIP.DV2ExFtmZ-m-s0SUw4Z0UwHaEo?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="سيارة SUV">
+                <div class="car-info">
+                    <span class="car-type">LUXURY SUV</span>
+                    <h2>Lexus NX</h2>
+                    <p>تصميم عصري وتقنيات متقدمة.</p>
+                    <a href="car.html?model=nx" class="car-link">اكتشف السيارة ←</a>
+                </div>
+            </article>
+            <article class="car-card" data-name="RX آر اكس" data-category="suv">
+                <img src="https://di-uploads-pod24.dealerinspire.com/lexusofpembrokepines/uploads/2024/12/mlp-img-perf-2025-rx.jpg" alt="سيارة SUV فاخرة">
+                <div class="car-info">
+                    <span class="car-type">MID-SIZE SUV</span>
+                    <h2>Lexus RX</h2>
+                    <p>توازن بين الفخامة والعملية.</p>
+                    <a href="car.html?model=rx" class="car-link">اكتشف السيارة ←</a>
+                </div>
+            </article>
+            <article class="car-card" data-name="GX جي اكس" data-category="van">
+                <img src="https://www.edmunds.com/assets/m/cs/cms/98347fdc-87e9-4925-8915-6cff4bce174c/2025-lexus-gx-550_1280.jpg" alt="سيارة دفع رباعي">
+                <div class="car-info">
+                    <span class="car-type">OFF-ROAD SUV</span>
+                    <h2>Lexus GX</h2>
+                    <p>قدرات دفع رباعي بطابع فاخر.</p>
+                    <a href="car.html?model=gx" class="car-link">اكتشف السيارة ←</a>
+                </div>
+            </article>
+            <article class="car-card" data-name="LX إل اكس" data-category="van">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT992j9dN7dSSxbHreFYN16OVZnofeOgFv5ck-OmzUmBgqWbA2zaIeL1gFz&s=10" alt="سيارة دفع رباعي فاخرة">
+                <div class="car-info">
+                    <span class="car-type">FLAGSHIP SUV</span>
+                    <h2>Lexus LX</h2>
+                    <p>فخامة كبيرة وقدرات على الطرق الوعرة.</p>
+                    <a href="car.html?model=lx" class="car-link">اكتشف السيارة ←</a>
+                </div>
+            </article>
+            <article class="car-card" data-name="TX تي اكس" data-category="van">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv45KZ4DEd3cTZYsTt6-Ob61vKqkZXn_IiPrXA3pwElg&s" alt="سيارة عائلية فاخرة">
+                <div class="car-info">
+                    <span class="car-type">THREE-ROW SUV</span>
+                    <h2>Lexus TX</h2>
+                    <p>مساحة رحبة وراحة للعائلة.</p>
+                    <a href="car.html?model=tx" class="car-link">اكتشف السيارة ←</a>
+                </div>
+            </article>
+            <article class="car-card" data-name="LFA ال اف اي الرياضية" data-category="electric">
+                <img src="https://s1.cdn.autoevolution.com/images/news/does-the-widebody-look-suit-the-lexus-lfa-262923-7.jpg" alt="سيارة رياضية">
+                <div class="car-info">
+                    <span class="car-type">SUPER CAR</span>
+                    <h2>Lexus LFA</h2>
+                    <p>تجربة قيادة رياضية  بالكامل.</p>
+                    <a href="car.html?model=rz" class="car-link">اكتشف السيارة ←</a>
+                </div>
+            </article>
+            <article class="car-card" data-name="RC آر سي" data-category="coupe">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjh2TOgq7lHNwRMPCeUSSWrRrCQQLTi4TNvIOlpIIKKg&s=10" alt="سيارة كوبيه رياضية">
+                <div class="car-info">
+                    <span class="car-type">SPORT COUPE</span>
+                    <h2>Lexus RC</h2>
+                    <p>كوبيه رياضية بتصميم جريء.</p>
+                    <a href="car.html?model=rc" class="car-link">اكتشف السيارة ←</a>
+                </div>
+            </article>
+            <article class="car-card" data-name="LC إل سي" data-category="coupe">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg1nt43DNwmefFKvHVO8l7qa-Kgx5t0kH_-TDYfTPpcLcDsqaLoxC5Z0CN&s=10" alt="سيارة كوبيه فاخرة">
+                <div class="car-info">
+                    <span class="car-type">GRAND TOURER</span>
+                    <h2>Lexus LC</h2>
+                    <p>تصميم استثنائي وأداء رياضي.</p>
+                    <a href="car.html?model=lc" class="car-link">اكتشف السيارة ←</a>
+                </div>
+            </article>
+            <article class="car-card" data-name="LM إل ام عائلية" data-category="van">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_n6aHGtaX2KuQvK46sKjlb7O3YJp2bDl3sExh-Edrl8q1pXdTuWfMfoUF&s=10" alt="مركبة فاخرة واسعة">
+                <div class="car-info">
+                    <span class="car-type">LUXURY MPV</span>
+                    <h2>Lexus LM</h2>
+                    <p>مساحة راقية وراحة للركاب.</p>
+                    <a href="car.html?model=lm" class="car-link">اكتشف السيارة ←</a>
+                </div>
+            </article>
+        </div>
+        <p id="noCars" class="no-cars" hidden>ما لقينا سيارة بهذا الاسم.</p>
+    </section>
+    <section class="booking-banner">
+        <h2>سيارتك تستحق العناية الأفضل</h2>
+        <p>احجز موعد صيانة في مركز سعود التخصصي.</p>
+        <a href="booking.html" class="btn-primary">احجز موعدك</a>
+    </section>
+</main>
+<footer class="site-footer">
+    <p>© <span id="year"></span> مركز سعود التخصصي — جدة</p>
+</footer>
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const searchInput = document.getElementById("carSearch");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const carCards = document.querySelectorAll("#allCars .car-card");
+    const noCars = document.getElementById("noCars");
+    let activeCategory = "all";
+    function filterCars() {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        let visibleCount = 0;
+        carCards.forEach(card => {
+            const name = card.dataset.name.toLowerCase();
+            const model = card.querySelector("h2").textContent.toLowerCase();
+            const category = card.dataset.category;
+            const matchesSearch =
+                name.includes(searchTerm) || model.includes(searchTerm);
+            const matchesCategory =
+                activeCategory === "all" || category === activeCategory;
+            const visible = matchesSearch && matchesCategory;
+            card.hidden = !visible;
+            if (visible) visibleCount++;
+        });
+        noCars.hidden = visibleCount !== 0;
+    }
+    searchInput.addEventListener("input", filterCars);
+    filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            filterButtons.forEach(item => item.classList.remove("active"));
+            button.classList.add("active");
+            activeCategory = button.dataset.filter;
+            filterCars();
+        });
+    });
+</script>
+</body>
+</html>
