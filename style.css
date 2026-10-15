@@ -1679,3 +1679,22 @@ body > header > nav > a:hover {
         width: 110px;
     }
 }
+
+/* Mobile menu improvements */
+@media screen and (max-width: 768px) {
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  nav ul li {
+    margin: 0;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+}
